@@ -40,15 +40,12 @@ public class SortExample {
      * @param high the ending index
      */
     public static void quickSort(Integer[] arr, int low, int high) {
-        // Check if array is empty or has only one element
         if (arr == null || arr.length == 0) return;
         if (low >= high) return;
 
-        // Find the pivot (middle element)
         int middle = low + (high - low) / 2;
         int pivot = arr[middle];
 
-        // Partitioning the array
         int i = low, j = high;
         while (i <= j) {
             while (arr[i] < pivot) i++;
@@ -61,7 +58,6 @@ public class SortExample {
             }
         }
 
-        // Recursively sort left and right sides
         if (low < j) quickSort(arr, low, j);
         if (high > i) quickSort(arr, i, high);
     }
@@ -94,15 +90,12 @@ public class SortExample {
         int[] l = new int[mid];
         int[] r = new int[n - mid];
 
-        // Copy elements to left and right subarrays
         for (int i = 0; i < mid; i++) l[i] = a[i];
         for (int i = mid; i < n; i++) r[i - mid] = a[i];
 
-        // Recursively sort both halves
         mergeSort(l, mid);
         mergeSort(r, n - mid);
 
-        // Merge the sorted halves
         merge(a, l, r, mid, n - mid);
     }
 
@@ -119,7 +112,6 @@ public class SortExample {
     public static void merge(int[] a, int[] l, int[] r, int left, int right) {
         int i = 0, j = 0, k = 0;
 
-        // Merge by comparing elements
         while (i < left && j < right) {
             if (l[i] <= r[j]) {
                 a[k++] = l[i++];
@@ -128,7 +120,6 @@ public class SortExample {
             }
         }
 
-        // Copy remaining elements
         while (i < left) a[k++] = l[i++];
         while (j < right) a[k++] = r[j++];
     }
