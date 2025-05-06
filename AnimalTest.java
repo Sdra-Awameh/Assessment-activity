@@ -1,109 +1,126 @@
-// Superclass representing a generic Animal
-class Animal {
-    int age;
-    String gender;
 
-    // Parameterized constructor for Animal
+
+class Animal {
+    public int age;
+    public String gender;
+
     public Animal(int age, String gender) {
         this.age = age;
         this.gender = gender;
     }
 
-    // Method to check if the animal is a mammal
-    public void isMammal() {
-        System.out.println("This animal is a mammal: " + (this instanceof Zebra));
+    public boolean isMammal() {
+        return false;
     }
 
-    // Method representing the mating behavior
     public void mate() {
         System.out.println("Animal is mating.");
     }
 }
 
-// Subclass representing a Duck
 class Duck extends Animal {
-    String beakColor;
+    public String beakColor= "yellow";
 
-    // Parameterized constructor for Duck
     public Duck(int age, String gender, String beakColor) {
-        super(age, gender); // Call the superclass constructor
+        super(age, gender);
         this.beakColor = beakColor;
     }
 
-    // Method specific to Duck for swimming
-    public void swim() {
-        System.out.println("Duck is swimming.");
+    public boolean isMammal() {
+        return false;
     }
 
-    // Method for duck sound
+    public void mate() {
+        System.out.println("Duck is mating.");
+    }
+
+    public void swim() {
+        System.out.println("Duck swims in the pond.");
+    }
+
     public void quack() {
-        System.out.println("Duck is quacking.");
+        System.out.println("Duck goes quack!");
     }
 }
 
-// Subclass representing a Fish
 class Fish extends Animal {
-    int sizeInFt;
-    boolean canEat;
+    private int sizeInFt;
+    private boolean canEat;
 
-    // Parameterized constructor for Fish
+    public int getSizeInFt() {
+        return sizeInFt;
+    }
+
+    public boolean getCanEat() {
+        return canEat;
+    }
+
+
     public Fish(int age, String gender, int sizeInFt, boolean canEat) {
-        super(age, gender); // Call the superclass constructor
+        super(age, gender);
         this.sizeInFt = sizeInFt;
         this.canEat = canEat;
     }
 
-    // Method specific to Fish for swimming
-    public void swim() {
-        System.out.println("Fish is swimming.");
+    public boolean isMammal() {
+        return false;
+    }
+
+    public void mate() {
+        System.out.println("Fish is mating.");
+    }
+    private void swim() {
+        System.out.println("Fish swims in the water.");
     }
 }
 
-// Subclass representing a Zebra
 class Zebra extends Animal {
-    boolean isWild;
+    public boolean is_wild;
 
-    // Parameterized constructor for Zebra
-    public Zebra(int age, String gender, boolean isWild) {
-        super(age, gender); // Call the superclass constructor
-        this.isWild = isWild;
+    public Zebra(int age, String gender, boolean is_wild) {
+        super(age, gender);
+        this.is_wild = is_wild;
     }
 
-    // Method specific to Zebra for running
+    public boolean isMammal() {
+        return true;
+    }
+
+    public void mate() {
+        System.out.println("Zebra is mating.");
+    }
+
     public void run() {
-        System.out.println("Zebra is running.");
+        System.out.println("Zebra runs fast on the plains.");
     }
 }
 
-// Test class to create and use objects of Animal and its subclasses
-public class AnimalTest {
+public class Test {
     public static void main(String[] args) {
-        // Creating a Duck object
-        Duck duck = new Duck(2, "Female", "yellow");
-
-        // Creating a Fish object
-        Fish fish = new Fish(1, "Male", 3, true);
-
-        // Creating a Zebra object
-        Zebra zebra = new Zebra(5, "Female", true);
-
-        // Testing Duck methods
-        System.out.println("Duck");
-        duck.isMammal();
+        Duck duck = new Duck(2, "male", "red");
+        System.out.println("Duck is a mammal: " + duck.isMammal());
         duck.mate();
+        System.out.println("Duck age: " + duck.age);
+        System.out.println("Duck gender: " + duck.gender);
         duck.swim();
         duck.quack();
 
-        // Testing Fish methods
-        System.out.println("\nFish");
-        fish.isMammal();
+        Fish fish = new Fish(1, "Female", 2, true);
+        System.out.println("Fish is a mammal: " + fish.isMammal());
         fish.mate();
-        fish.swim();
+        System.out.println("Fish age: " + fish.age);
+        System.out.println("Fish gender: " + fish.gender);
+        System.out.println("Fish size in feet: " + fish.getSizeInFt());
+        System.out.println("Fish can eat: " + fish.getCanEat());
+ 
 
-        // Testing Zebra methods
-        System.out.println("\nZebra");
-        zebra.isMammal();
+        Zebra zebra = new Zebra(4, "male", true);
+        System.out.println("Zebra is a mammal: " + zebra.isMammal());
         zebra.mate();
+        System.out.println("Zebra age: " + zebra.age);
+        System.out.println("Zebra gender: " + zebra.gender);
+        System.out.println("Zebra is wild: " + zebra.is_wild);
         zebra.run();
+
     }
 }
