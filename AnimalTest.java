@@ -95,28 +95,25 @@ class Zebra extends Animal {
 
 public class Test {
     public static void main(String[] args) {
-        Duck duck = new Duck(2, "male", "red");
+        Duck duck = new Duck(2, "male", "red"); // test duck class
         System.out.println("Duck is a mammal: " + duck.isMammal());
         duck.mate();
-        System.out.println("Duck age: " + duck.age);
-        System.out.println("Duck gender: " + duck.gender);
+        System.out.println("age: " + duck.age);
+        System.out.println("gender: " + duck.gender);
         duck.swim();
         duck.quack();
-
-        Fish fish = new Fish(1, "Female", 2, true);
+        Fish fish = new Fish(5, "Female", 5, true); //test fish class
         System.out.println("Fish is a mammal: " + fish.isMammal());
         fish.mate();
-        System.out.println("Fish age: " + fish.age);
-        System.out.println("Fish gender: " + fish.gender);
-        System.out.println("Fish size in feet: " + fish.getSizeInFt());
-        System.out.println("Fish can eat: " + fish.getCanEat());
- 
-
-        Zebra zebra = new Zebra(4, "male", true);
+        System.out.println("age: " + fish.age);
+        System.out.println("gender: " + fish.gender);
+        System.out.println("size in feet: " + fish.getSizeInFt());
+        System.out.println("Fish can eat? " + fish.getCanEat());
+        Zebra zebra = new Zebra(9, "male", true); //test zebre class
         System.out.println("Zebra is a mammal: " + zebra.isMammal());
         zebra.mate();
-        System.out.println("Zebra age: " + zebra.age);
-        System.out.println("Zebra gender: " + zebra.gender);
+        System.out.println("age: " + zebra.age);
+        System.out.println("gender: " + zebra.gender);
         System.out.println("Zebra is wild: " + zebra.is_wild);
         zebra.run();
 
